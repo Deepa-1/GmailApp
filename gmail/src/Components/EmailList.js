@@ -12,6 +12,8 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import styled from 'styled-components';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import EMAILROW from './EmailRow';
+import SendMail from './SendMail';
+import propTypes from 'prop-types';
 
 const EmailSettings=styled.div`
 position:sticky;
@@ -37,9 +39,11 @@ border-bottom:1px solid whitesmoke;
 
 
 
-function EmailList()
+function EmailList(props)
 {
+    const {enableComposeDialog} = props;
     return(
+        <>
         <ListEmail>
             <EmailSettings>
                   <div>
@@ -99,11 +103,18 @@ function EmailList()
              </IconButton>
             </div> */}            
         </ListEmail>
-     
-        
+        {enableComposeDialog && (<SendMail />)}
+        </>
     );
 
 
 }
+
+EmailList.propTypes = {
+    enableComposeDialog: propTypes.bool,
+  };
+  EmailList.defaultProps = {
+    enableComposeDialog: true,
+  };
 
 export default EmailList;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import CloseIcon from '@material-ui/icons/Close';
 import { Button, Input } from '@material-ui/core';
 import './SendMail.css';
+import { useHistory } from 'react-router-dom';
 
 // const SENDMAILS=styled.div`
 // position:absolute;
@@ -45,11 +46,12 @@ import './SendMail.css';
 function SendMail()
 {
 
+    let history=useHistory();
     return(
         <div className="sendMail">
           <div className="sendMail_header">
               <h3>New Message</h3>
-      <CloseIcon  className="sendMail_close"/>
+      <CloseIcon  className="sendMail_close" onClick= {()=>history.push("/")}/>
           </div>  
             
           <form>

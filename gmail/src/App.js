@@ -26,21 +26,14 @@ function App() {
            <Route path="/mail">
                 <Mail />
            </Route>
-           <Route path="/">
-             <EmailList />
+           <Route path="/Composenew">
+           <EmailList enableComposeDialog={true} />
            </Route>
-
-           {/* <Route path="/Composenew">
-             <SendMail />
-           </Route> */}
-           </Switch> 
-{/* 
            <Route path="/">
-             <EmailList />
-           </Route> */}
-               
+             <EmailList enableComposeDialog={false}/>
+           </Route>
+           </Switch>
       </APPBODY>
-      <SendMail />
   </div>
     </Router>
   );
